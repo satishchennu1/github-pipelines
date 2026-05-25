@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────
+# Pipeline 1: Hello World (Start Here!)
+# This is the simplest possible pipeline
+# ─────────────────────────────────────────────
+name: 01 - Hello World
+
+# WHEN does this pipeline run?
+on:
+  push:
+    branches: [main]
+
+# WHAT does this pipeline do?
+jobs:
+  say-hello:
+    name: My First Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say Hello
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Show Date and Time
+        run: date
+
+      - name: Show System Info
+        run: |
+          echo "Running on: $(uname -s)"
+          echo "User: $(whoami)"
+          echo "Directory: $(pwd)"
+
